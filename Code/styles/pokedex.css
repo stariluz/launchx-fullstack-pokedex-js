@@ -1,5 +1,6 @@
 :root{
-    --body-margin: 3vw;
+    --body-margin: 2vw;
+    --ducts-width: 4.5vw;
 }
 
 html{
@@ -42,7 +43,7 @@ body {
     /* height: 100%; */
     width: 50%;
     
-    border-radius: 2vw 0px 0px 2vw;
+    border-radius: 1vw 0px 0px 1vw;
     box-shadow:
     inset 4px 4px 6px -1px rgb(255 99 99),
     inset -6px -4px 10px -2px rgb(68 0 0);
@@ -56,17 +57,17 @@ body {
 
 .main-center{
     width: 100%;
-    height: calc(100% - 6vw*2);
+    height: calc(100% - var(--ducts-width)*2);
     position: relative;
-    top: 6vw;
+    top: var(--ducts-width);
     
     box-shadow:
     inset 0px 10px 10px -10px rgb(124 0 0),
     inset 0px 10px 20px -15px rgb(0 0 0),
-    0px -3px 3px -1px rgb(206 68 68),
+    0px -5px 3px -3px rgb(206 68 68),
     inset 0px -10px 10px -10px rgb(124 0 0),
     inset 0px -10px 20px -15px rgb(0 0 0),
-    0px 3px 3px -1px rgb(206 68 68),
+    0px 5px 3px -3px rgb(206 68 68),
     inset 5px 0px 3px -1px rgb(255 99 99);
 
     background: -moz-linear-gradient(90deg, rgba(255,19,49,1) 0%, rgba(250,0,0,1) 50%, rgba(214,0,0,1) 98%, rgba(168,0,0,1) 100%);
@@ -76,13 +77,13 @@ body {
 }
 
 .secondary-container{
-    /* height: calc(100% - 6vw*2); */
+    /* height: calc(100% - var(--ducts-width)*2); */
     /* position: relative; */
-    /* top: 6vw; */
-    margin: 6vw 0px;
-    width: calc(50% - 6vw);
+    /* top: var(--ducts-width); */
+    margin: var(--ducts-width) 0px;
+    width: calc(50% - var(--ducts-width));
 
-    border-radius: 0px 2vw 2vw 0px;
+    border-radius: 0px 1vw 1vw 0px;
     box-shadow:
     inset -2px 4px 6px -1px rgb(255 99 99),
     inset -4px -4px 6px -1px rgb(129 3 3);  
@@ -96,14 +97,14 @@ body {
 
 .bonding-container {
     /* height: 100%; */
-    width: 6vw;
+    width: var(--ducts-width);
 
     
     box-shadow:
     -5px 0px 10px -5px rgb(0 0 0 / 30%),
     inset -4px 4px 6px -1px rgb(255 99 99),
     inset 6px 4px 10px -2px rgb(68 0 0);
-    border-radius: 0px 2vw 2vw 0px;
+    border-radius: 0px 1vw 1vw 0px;
 
     background: rgb(116,0,0);
     background: -moz-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(250,0,0,1) 68%, rgba(116,0,0,1) 100%);
@@ -113,10 +114,10 @@ body {
 }
 
 .bonding-center {
-    height: calc(100% - 6vw*2 - 1px*2);
+    height: calc(100% - var(--ducts-width)*2 - 1px*2);
     width: 100%;
     position: relative;
-    top: 6vw;
+    top: var(--ducts-width);
 
     box-shadow: 0px 5px 10px -5px #000, 0px -5px 10px -5px #000;
     border-top: 1px solid rgb(112, 0, 0);
@@ -127,4 +128,28 @@ body {
     background: -webkit-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgb(231, 0, 0) 10%, rgba(238,119,151,1) 30%, rgb(231, 0, 0) 50%, rgb(231, 0, 0) 90%, rgba(116,0,0,1) 100%);
     background: linear-gradient(90deg, rgba(116,0,0,1) 0%, rgb(231, 0, 0) 10%, rgba(238,119,151,1) 30%, rgb(231, 0, 0) 50%, rgb(231, 0, 0) 90%, rgba(116,0,0,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#740000",GradientType=1);
+}
+
+.main-screen {
+    background-color: rgb(228, 228, 228);
+    height: 50%;
+    width: 86%;
+    position: relative;
+    top: 5%;
+    left: 7%;
+    border-radius: 10px 10px 10px 0px;
+    /* border-bottom-left-radius: 20px ; */
+    -webkit-clip-pathh: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 80%, 0% 0%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 80%, 0% 0%);
+}
+.main-image {
+    height: 75%;
+    width: 90%;
+    background-color: rgb(251, 255, 214);
+    position: relative;
+    /* border-radius: 10px 10px 10px 0px; */
+    top: 5%;
+    left: 5%;
+    -webkit-clip-path: polygon(4% 0%, 96% 0%, 100% 5%, 100% 95%, 96% 100%, 4% 100%, 0% 95%, 0% 5%);
+    clip-path: polygon(4% 0%, 96% 0%, 100% 5%, 100% 95%, 96% 100%, 4% 100%, 0% 95%, 0% 5%);
 }
