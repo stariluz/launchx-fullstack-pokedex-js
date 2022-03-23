@@ -1,31 +1,51 @@
 :root{
-    --body-margin: 2rem;
+    --body-margin: 3vw;
 }
+
 html{
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
     padding: 0;
-    margin: 0;
+    margin: auto;
+    /* margin: var(--body-margin); */
+}
+
+body {
+    margin: var(--body-margin);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-body{
+
+.pokedex{
     display: inline-flex;
-    margin: var(--body-margin);
-    height: calc(100% - var(--body-margin)*2);
-    width: calc(100% - var(--body-margin)*2);
-    max-width: 900px;
+    margin: 0;
+    /* height: calc(100% - var(--body-margin)*2); */
+    /* width: calc(100% - var(--body-margin)*2); */
+    width: 850px;
+    /* max-height: 900px; */
     position: relative;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    /* transform: translate(-50%, 0%); */
+    /* background: #F9D237; */
 }
+
+.pokedex::before {
+    content: '';
+    display: block;
+    padding-top: 85%;
+}
+
 .main-container{
-    height: 100%;
+    /* height: 100%; */
     width: 50%;
     
-    border-radius: 15px 0px 0px 15px;
+    border-radius: 2vw 0px 0px 2vw;
     box-shadow:
     inset 4px 4px 6px -1px rgb(255 99 99),
-    inset -4px -4px 6px -1px rgb(129 3 3);
+    inset -6px -4px 10px -2px rgb(68 0 0);
 
     background: rgb(116,0,0);
     background: -moz-linear-gradient(270deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
@@ -33,11 +53,12 @@ body{
     background: linear-gradient(270deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#d0051f",GradientType=1);
 }
+
 .main-center{
     width: 100%;
-    height: calc(100% - 50px*2);
+    height: calc(100% - 6vw*2);
     position: relative;
-    top: 50px;
+    top: 6vw;
     
     box-shadow:
     inset 0px 10px 10px -10px rgb(124 0 0),
@@ -53,13 +74,15 @@ body{
     background: linear-gradient(90deg, rgba(255,19,49,1) 0%, rgba(250,0,0,1) 50%, rgba(214,0,0,1) 98%, rgba(168,0,0,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff1331",endColorstr="#a80000",GradientType=1);
 }
-.secondary-container{
-    height: calc(100% - 50px*2);
-    width: calc(50% - 50px);
-    position: relative;
-    top: 50px;
 
-    border-radius: 0px 15px 15px 0px;
+.secondary-container{
+    /* height: calc(100% - 6vw*2); */
+    /* position: relative; */
+    /* top: 6vw; */
+    margin: 6vw 0px;
+    width: calc(50% - 6vw);
+
+    border-radius: 0px 2vw 2vw 0px;
     box-shadow:
     inset -2px 4px 6px -1px rgb(255 99 99),
     inset -4px -4px 6px -1px rgb(129 3 3);  
@@ -70,13 +93,17 @@ body{
     background: linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#d0051f",GradientType=1);
 }
+
 .bonding-container {
-    height: 100%;
-    width: 50px;
+    /* height: 100%; */
+    width: 6vw;
 
     
-    box-shadow: -5px 0px 10px -5px rgba(0, 0, 0, 0.3);
-    border-radius: 0px 15px 15px 0px;
+    box-shadow:
+    -5px 0px 10px -5px rgb(0 0 0 / 30%),
+    inset -4px 4px 6px -1px rgb(255 99 99),
+    inset 6px 4px 10px -2px rgb(68 0 0);
+    border-radius: 0px 2vw 2vw 0px;
 
     background: rgb(116,0,0);
     background: -moz-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(250,0,0,1) 68%, rgba(116,0,0,1) 100%);
@@ -84,15 +111,16 @@ body{
     background: linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(250,0,0,1) 68%, rgba(116,0,0,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#740000",GradientType=1);
 }
+
 .bonding-center {
-    height: calc(100% - 50px*2);
-    width: 50px;
+    height: calc(100% - 6vw*2 - 1px*2);
+    width: 100%;
     position: relative;
-    top: 48px;
+    top: 6vw;
 
     box-shadow: 0px 5px 10px -5px #000, 0px -5px 10px -5px #000;
-    border-top: 2px solid rgba(0, 0, 0, 0.6);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+    border-top: 1px solid rgb(112, 0, 0);
+    border-bottom: 1px solid rgb(112, 0, 0);
 
     background: rgb(116,0,0);
     background: -moz-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgb(231, 0, 0) 10%, rgba(238,119,151,1) 30%, rgb(231, 0, 0) 50%, rgb(231, 0, 0) 90%, rgba(116,0,0,1) 100%);
