@@ -18,7 +18,7 @@ body {
     align-items: center;
 }
 
-.pokedex{
+.pokedex {
     display: inline-flex;
     margin: 0;
     /* height: calc(100% - var(--body-margin)*2); */
@@ -39,10 +39,26 @@ body {
     padding-top: 85%;
 }
 
-.main-container{
-    /* height: 100%; */
+.left-side {
     width: 50%;
+    border-radius: 1vw;
+    display: flex;
     
+    box-shadow:
+    inset 4px 4px 6px -1px rgb(255 99 99),
+    inset 0px -4px 10px -2px rgb(68 0 0);
+
+    background: -moz-linear-gradient(90deg, rgba(255,19,49,1) 0%, rgba(250,0,0,1) 50%, rgba(214,0,0,1) 98%, rgba(168,0,0,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(255,19,49,1) 0%, rgba(250,0,0,1) 50%, rgba(214,0,0,1) 98%, rgba(168,0,0,1) 100%);
+    background: linear-gradient(90deg, rgba(255,19,49,1) 0%, rgba(250,0,0,1) 50%, rgba(214,0,0,1) 98%, rgba(168,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff1331",endColorstr="#a80000",GradientType=1);
+}
+
+.main-container{
+    height: 100%;
+    width: calc(100% - var(--ducts-width));
+    
+    /*
     border-radius: 1vw 0px 0px 1vw;
     box-shadow:
     inset 4px 4px 6px -1px rgb(255 99 99),
@@ -52,82 +68,32 @@ body {
     background: -moz-linear-gradient(270deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
     background: -webkit-linear-gradient(270deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
     background: linear-gradient(270deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#d0051f",GradientType=1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#d0051f",GradientType=1); */
 }
 
-.main-center{
-    width: 100%;
+.main-center {
+    width: calc(100% - 0.7vw);
+    /* width: 100%; */
     height: calc(100% - var(--ducts-width)*2);
     position: relative;
     top: var(--ducts-width);
+    left: 0.7vw;
+    
+    border-radius: 1vw 0px 0px 1vw;
     
     box-shadow:
     inset 0px 10px 10px -10px rgb(124 0 0),
     inset 0px 10px 20px -15px rgb(0 0 0),
-    0px -5px 3px -3px rgb(206 68 68),
+    -1px -2px 4px 0px rgb(255 255 255 / 50%),
     inset 0px -10px 10px -10px rgb(124 0 0),
     inset 0px -10px 20px -15px rgb(0 0 0),
-    0px 5px 3px -3px rgb(206 68 68),
-    inset 5px 0px 3px -1px rgb(255 99 99);
-
-    background: -moz-linear-gradient(90deg, rgba(255,19,49,1) 0%, rgba(250,0,0,1) 50%, rgba(214,0,0,1) 98%, rgba(168,0,0,1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(255,19,49,1) 0%, rgba(250,0,0,1) 50%, rgba(214,0,0,1) 98%, rgba(168,0,0,1) 100%);
-    background: linear-gradient(90deg, rgba(255,19,49,1) 0%, rgba(250,0,0,1) 50%, rgba(214,0,0,1) 98%, rgba(168,0,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff1331",endColorstr="#a80000",GradientType=1);
-}
-
-.secondary-container{
-    /* height: calc(100% - var(--ducts-width)*2); */
-    /* position: relative; */
-    /* top: var(--ducts-width); */
-    margin: var(--ducts-width) 0px;
-    width: calc(50% - var(--ducts-width));
-
-    border-radius: 0px 1vw 1vw 0px;
-    box-shadow:
-    inset -2px 4px 6px -1px rgb(255 99 99),
-    inset -4px -4px 6px -1px rgb(129 3 3);  
+    0px 5px 4px -3px rgb(255 255 255 / 60%);
 
     background: rgb(116,0,0);
-    background: -moz-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
-    background: linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
+    background: -moz-linear-gradient(270deg, rgb(145, 0, 0) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
+    background: -webkit-linear-gradient(270deg, rgb(145, 0, 0) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
+    background: linear-gradient(270deg, rgb(145, 0, 0) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#d0051f",GradientType=1);
-}
-
-.bonding-container {
-    /* height: 100%; */
-    width: var(--ducts-width);
-
-    
-    box-shadow:
-    -5px 0px 10px -5px rgb(0 0 0 / 30%),
-    inset -4px 4px 6px -1px rgb(255 99 99),
-    inset 6px 4px 10px -2px rgb(68 0 0);
-    border-radius: 0px 1vw 1vw 0px;
-
-    background: rgb(116,0,0);
-    background: -moz-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(250,0,0,1) 68%, rgba(116,0,0,1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(250,0,0,1) 68%, rgba(116,0,0,1) 100%);
-    background: linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(250,0,0,1) 68%, rgba(116,0,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#740000",GradientType=1);
-}
-
-.bonding-center {
-    height: calc(100% - var(--ducts-width)*2 - 1px*2);
-    width: 100%;
-    position: relative;
-    top: var(--ducts-width);
-
-    box-shadow: 0px 5px 10px -5px #000, 0px -5px 10px -5px #000;
-    border-top: 1px solid rgb(112, 0, 0);
-    border-bottom: 1px solid rgb(112, 0, 0);
-
-    background: rgb(116,0,0);
-    background: -moz-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgb(231, 0, 0) 10%, rgba(238,119,151,1) 30%, rgb(231, 0, 0) 50%, rgb(231, 0, 0) 90%, rgba(116,0,0,1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgb(231, 0, 0) 10%, rgba(238,119,151,1) 30%, rgb(231, 0, 0) 50%, rgb(231, 0, 0) 90%, rgba(116,0,0,1) 100%);
-    background: linear-gradient(90deg, rgba(116,0,0,1) 0%, rgb(231, 0, 0) 10%, rgba(238,119,151,1) 30%, rgb(231, 0, 0) 50%, rgb(231, 0, 0) 90%, rgba(116,0,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#740000",GradientType=1);
 }
 
 .main-screen {
@@ -142,6 +108,7 @@ body {
     -webkit-clip-pathh: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 80%, 0% 0%);
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 80%, 0% 0%);
 }
+
 .main-image {
     height: 75%;
     width: 90%;
@@ -152,4 +119,110 @@ body {
     left: 5%;
     -webkit-clip-path: polygon(4% 0%, 96% 0%, 100% 5%, 100% 95%, 96% 100%, 4% 100%, 0% 95%, 0% 5%);
     clip-path: polygon(4% 0%, 96% 0%, 100% 5%, 100% 95%, 96% 100%, 4% 100%, 0% 95%, 0% 5%);
+}
+
+.main-image img{
+    height: 80%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h2 {
+    margin: 0;
+    text-align: center;
+    font-size: x-large;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bonding-container {
+    /* height: 100%; */
+    width: var(--ducts-width);
+
+    border-radius: 1vw;
+    box-shadow:
+    -8px 0px 10px -5px rgb(98 0 0),
+    inset 0px 8px 6px -6px rgba(255, 255, 255, 0.5),
+    inset -6px -4px 10px -2px rgb(68 0 0);
+
+    background: rgb(116,0,0);
+    background: -moz-linear-gradient(90deg, rgb(134, 0, 0) 0%, rgba(250,0,0,1) 30%, rgba(116,0,0,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgb(134, 0, 0) 0%, rgba(250,0,0,1) 30%, rgba(116,0,0,1) 100%);
+    background: linear-gradient(90deg, rgb(134, 0, 0) 0%, rgba(250,0,0,1) 30%, rgba(116,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#740000",GradientType=1);
+}
+
+.bonding-center {
+    height: calc(100% - var(--ducts-width)*2 - 1px*2);
+    width: 100%;
+    position: relative;
+    top: var(--ducts-width);
+
+    border-radius: 5px 0px 0px 5px;
+    box-shadow:
+    inset 0px 6px 5px -5px rgb(255 99 99);
+    border-top: 1px solid rgb(112, 0, 0);
+    border-bottom: 1px solid rgb(112, 0, 0);
+
+    background: rgb(116,0,0);
+    background: -moz-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgb(207, 4, 4) 10%, rgba(238,119,151,1) 35%, rgb(207, 4, 4) 70%, rgb(145, 0, 0) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgb(207, 4, 4) 10%, rgba(238,119,151,1) 35%, rgb(207, 4, 4) 70%, rgb(145, 0, 0) 100%);
+    background: linear-gradient(90deg, rgba(116,0,0,1) 0%, rgb(207, 4, 4) 10%, rgba(238,119,151,1) 35%, rgb(207, 4, 4) 70%, rgb(145, 0, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#740000",GradientType=1);
+}
+
+.secondary-container{
+    /* height: calc(100% - var(--ducts-width)*2); */
+    /* position: relative; */
+    /* top: var(--ducts-width); */
+    margin: var(--ducts-width) 0px;
+    width: calc(50% - var(--ducts-width));
+
+    border-radius: 0px 1vw 1vw 0px;
+    box-shadow:
+    inset 0px 7px 5px -5px rgb(255 99 99),
+    inset -4px -4px 6px -3px rgb(129 3 3),
+    inset -4px -4px 3px -3px rgb(117 0 0);
+
+    background: rgb(116,0,0);
+    background: -moz-linear-gradient(90deg, rgb(145, 0, 0) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgb(145, 0, 0) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
+    background: linear-gradient(90deg, rgb(145, 0, 0) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#d0051f",GradientType=1);
+}
+
+.secondary-center{
+    width: calc(100% - 1.4vw);
+    height: calc(100% - 1.4vw);
+    position: relative;
+    top: 0.7vw;
+    left: 0.7vw;
+
+    border-radius: 0px 0.7vw 0.7vw 0px;
+
+    box-shadow:
+    inset -2px 4px 6px -1px rgb(129 3 3),
+    inset 2px -2px 6px -1px rgb(68, 0, 0);  
+
+    background: rgb(116,0,0);
+    background: -moz-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
+    background: linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(182,0,0,1) 30%, rgba(208,5,31,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#740000",endColorstr="#d0051f",GradientType=1);
+}
+
+.secondary-screen {
+    background-color: rgb(18, 37, 32);
+    height: 40%;
+    width: 86%;
+    position: relative;
+    top: 5%;
+    left: 7%;
+    border-radius: 10px;
+    /* border-bottom-left-radius: 20px ; */
+    /* -webkit-clip-pathh: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 80%, 0% 0%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 80%, 0% 0%); */
 }
