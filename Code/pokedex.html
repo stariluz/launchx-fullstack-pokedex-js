@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex LaunchX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/pokedex.css">
-    
 </head>
 <body>
-    <!-- <input type="text" placeholder="pikachu" id="user_input" name="user_input" value="Pikachu"> -->
     <!-- <h1>Pokedex LaunchX</h1>
     <br>
     <img src="./images/confused.png" alt="Pokemon" id="pk_image" width="150px">
@@ -22,34 +21,59 @@
     <ul id="pk_moves">
     </ul>
     -->
-    <!-- <button onclick="fetchPokemon()">Cambiar pokemon</button>  -->
     <div class="pokedex">
         <div class="left-side">
             <div class="main-container">
+                <div class="aux"></div>
                 <div class="main-center">
                     <div class="main-screen">
                         <div class="main-image">
                             <img src="./images/confused.png" alt="Pokemon" alt="" id="pk_image">
                             <h2 id="pk_name">
-                                
+                                Hi to Pokedex
                             </h2>
                         </div>
                     </div>
+                    <input type="text" placeholder="pikachu" id="user_input" name="user_input" value="Pikachu">
+                    <button onclick="fetchPokemon()" class="btn btn-primary">Cambiar pokemon</button> 
                 </div>
+                <div class="aux"></div>
             </div>
             <div class="bonding-container">
                 <div class="bonding-center"></div>
             </div>
         </div>
-        <div class="secondary-container">
-            <div class="secondary-center">
-                <div class="secondary-screen">
-                    <!-- <div class="secondary-image">
-                    </div> -->
+        <div class="right-side">
+            <div class="secondary-container">
+                <div class="secondary-center">
+                    <div class="secondary-screen">
+                        <div class="">
+                            <div class="types-container d-inline" id="pk_types">
+                                <h3 class="d-inline">TIPO: </h3>
+                                <h3 class="d-inline" id="pk_type_undefined">- - - - -</h3>
+                            </div>
+                            <div class="" id="pk_weaknesses"></div>
+                        </div>
+                        <div class="stats-group" id="pk_stats">
+                            <div class="stat">
+                                <div class="stat-value-container">
+                                    <div class="stat-value"></div>
+                                </div>
+                                <h4 class="stat-name" id="stat-name"></h4>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value-container">
+                                    <div class="stat-value"></div>
+                                </div>
+                                <h4 class="stat-name"></h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 <footer>
     <script src="./js/pokedex.js"></script>
