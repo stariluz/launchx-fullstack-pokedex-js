@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Space+Mono:wght@400;700&family=VT323&display=swap');
 
 :root{
     --body-margin: 2vw;
@@ -7,15 +7,16 @@
     font-size: 2vw;
 }
 *{
-    font-family: 'Arvo', serif;
+    /* font-family: 'Arvo', serif;
+    font-family: 'Space Mono', monospace;
+    font-family: 'VT323', monospace; */
+    font-family: 'Red Hat Mono', monospace;
 }
 html{
     /* height: 100%;
     width: 100%; */
     padding: 0;
     margin: auto;
-    /* font-family: 'VT323', monospace;
-    font-family: 'Space Mono', monospace; */
     /* margin: var(--body-margin); */
 }
 
@@ -249,6 +250,15 @@ h2 {
     font-size: 0.6rem;
     margin: 0;
     margin-right: 0.2rem;
+}
+
+.info-container{
+    width: 90%;
+    position: relative;
+    top: 8%;
+    left: 8%;
+    display: grid;
+    gap: 0.5rem;
 }
 
 .types-container,

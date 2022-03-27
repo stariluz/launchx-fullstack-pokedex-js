@@ -29,34 +29,44 @@ const fetchPokemon = () => {
 }
 
 const pkNameContainer=document.getElementById("pk_name");
+
 const pkImageContainer = document.getElementById("pk_image");
+
 const pkTypesContainer = document.getElementById("pk_types");
 const pkTypesUndefined = document.getElementById("pk_types_undefined");
+
 const pkStatsContainer = document.getElementById("pk_stats");
+
 const pkMovesContainer = document.getElementById("pk_moves");
+
+const pkWeaknessesContainer = document.getElementById("pk_weaknesses");
+const pkWeaknessesUndefined = document.getElementById("pk_weaknesses_undefined");
 
 const undefindedPokemon = ()=> {
     pkImageContainer.src = confusedImage;
     pkTypesContainer.innerHTML = `<h3 class="d-inline">TYPE: </h3>`;
     pkTypesContainer.appendChild(pkTypesUndefined)
     pkWeaknessesContainer.innerHTML = `<h3 class="d-inline">WEAKNESSES: </h3>`;
-    pkWeaknessesContainer.appendChild(pkWeaknessesUndefined.cloneNode())
+    pkWeaknessesContainer.appendChild(pkWeaknessesUndefined)
 }
 
 const changePokemon = (data) =>{
-    // Pokemon Name
-    let pkNumber = data.id;
-    let pkName = data.name;
-    pkName = pkName[0].toUpperCase() + pkName.slice(1);
-    pkNameContainer.innerText = "#" + pkNumber + " - " + pkName;
+    setPokemonInformation(data.id, data.name);
     
-    // Pokemon Image
-    let pkImageURL = data.sprites.front_default;
-    pkImageContainer.src = pkImageURL;
+    setPokemonImage(data.sprites);
 
+    setPokemonTypes(data.types);
+
+    setPokemonStats(data.stats);
+
+    setPokemonMoves(data.moves);
+}
+
+
+const setPokemonTypes = (types) =>{
     // Pokemon type
     pkTypesContainer.innerHTML = `<h3 class="d-inline">TYPE: </h3>`;
-    data.types.forEach(
+    types.forEach(
         (type) => {
             let typeName = type.type.name;
             let typeURL = type.type.url;
@@ -71,15 +81,48 @@ const changePokemon = (data) =>{
             fetchWeaknesses(typeURL);
         }
     );
+}
 
+const setPokemonInformation = (id, name) =>{
+    // Pokemon Information
+    let pkNumber = id;
+    let pkName = name;
+    // pkName = pkName[0].toUpperCase() + pkName.slice(1);
+    pkName = pkName.toUpperCase();
+    pkNameContainer.innerText = "#" + pkNumber + " - " + pkName;
+}
+
+const setPokemonImage = (sprites) =>{
+    // Pokemon Image
+    let pkImageURL = sprites.front_default;
+    pkImageContainer.src = pkImageURL;
+}
+
+const setPokemonMoves = (moves) =>{
+    // Pokemon movements
+    pkMovesContainer.innerHTML = null;
+    moves.forEach(
+        (move) => {
+            let moveName = move.move.name;
+            moveName = moveName[0].toUpperCase() + moveName.slice(1);
+
+            let newMove = document.createElement("li");
+            newMove.innerText = moveName;
+            pkMovesContainer.appendChild(newMove);
+        }
+    );
+}
+
+const setPokemonStats = (stats) =>{
     // Pokemon stats
     pkStatsContainer.innerHTML = null;
-    data.stats.forEach(
+    stats.forEach(
         (stat) => {
             let statValue = stat.base_stat;
             let statName = stat.stat.name;
             // statName = statName[0].toUpperCase() + statName.slice(1);
             statName = statName.toUpperCase();
+            statName = statName.replace("-", " ");
 
             // Creating the elements for render stat
             let newStat = document.createElement("div");
@@ -108,24 +151,27 @@ const changePokemon = (data) =>{
             newStat.appendChild(newStatName)
             pkStatsContainer.appendChild(newStat);
 
+            // Text style height properties
             fitText(newStatValueText, 0.5);
             fitText(newStatName, 0.5);
         }
     );
-/* 
-    // Pokemon movements
-    pkMovesContainer.innerHTML = null;
-    data.moves.forEach(
-        (move) => {
-            let moveName = move.move.name;
-            moveName = moveName[0].toUpperCase() + moveName.slice(1);
+}
 
-            let newMove = document.createElement("li");
-            newMove.innerText = moveName;
-            pkMovesContainer.appendChild(newMove);
+const setPokemonWeaknesses = (data) =>{
+    // Pokemon weaknesses
+    pkWeaknessesContainer.innerHTML = `<h3 class="d-inline">WEAKNESSES: </h3>`;
+    data.damage_relations.double_damage_from.forEach(
+        (type) => {
+            let typeName = type.name;
+            typeName = typeName.toUpperCase();
+
+            let newType = document.createElement("span");
+            newType.classList.add("badge");
+            newType.innerText = typeName;
+            pkWeaknessesContainer.appendChild(newType);
         }
     );
-    // console.log(pkImage); */
 }
 
 const fetchWeaknesses = (typeURL) => {
@@ -139,28 +185,9 @@ const fetchWeaknesses = (typeURL) => {
         (data) => {
             if (data) {
                 // console.log(data);
-                setWeaknessesPokemon(data);
+                setPokemonWeaknesses(data);
                 // return(data);   
             }
-        }
-    );
-}
-
-const pkWeaknessessContainer = document.getElementById("pk_weaknesses");
-const pkWeaknessesUndefined = document.getElementById("pk_weaknesses_undefined");
-
-const setWeaknessesPokemon = (data) =>{
-    // Pokemon weaknesses
-    pkWeaknessessContainer.innerHTML = `<h3 class="d-inline">WEAKNESSES: </h3>`;
-    data.damage_relations.double_damage_from.forEach(
-        (type) => {
-            let typeName = type.name;
-            typeName = typeName.toUpperCase();
-
-            let newType = document.createElement("span");
-            newType.classList.add("badge");
-            newType.innerText = typeName;
-            pkWeaknessessContainer.appendChild(newType);
         }
     );
 }
