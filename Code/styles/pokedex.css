@@ -4,6 +4,7 @@
     --body-margin: 2vw;
     --ducts-height: 10%;
     --ducts-width: 8.5%;
+    font-size: 2vw;
 }
 *{
     font-family: 'Arvo', serif;
@@ -30,7 +31,8 @@ body {
     margin: 0;
     /* height: calc(100% - var(--body-margin)*2); */
     /* width: calc(100% - var(--body-margin)*2); */
-    width: 850px;
+    width: 80vw;
+    /* width: 850px; */
     /* max-height: 900px; */
     position: relative;
     /* top: 50%; */
@@ -110,12 +112,12 @@ body {
 .main-screen {
     background-color: rgb(228, 228, 228);
     height: 50%;
-    width: 86%;
+    /* width: 86%; */
     box-sizing: border-box;
     /* position: relative;
     top: 5%;
     left: 7%; */
-    border-radius: 10px 10px 10px 0px;
+    border-radius: 1vw 1vw 1vw 0px;
     /* border-bottom-left-radius: 20px ; */
     -webkit-clip-pathh: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 80%, 0% 0%);
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 80%, 0% 0%);
@@ -144,7 +146,7 @@ h2 {
     width: 100%;
     margin: 0;
     text-align: center;
-    font-size: 2vw;
+    font-size: 1rem;
     position: absolute;
     bottom: 5px;
     left: 50%;
@@ -238,16 +240,22 @@ h2 {
     top: 5%;
     left: 7%;
 
-    border-radius: 10px;
+    border-radius: 1vw;
     background-color: rgb(18, 37, 32);
     color: yellow;
-    /* border-bottom-left-radius: 20px ; */
-    /* -webkit-clip-pathh: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 80%, 0% 0%);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 80%, 0% 0%); */
 }
 
 .secondary-screen h3 {
-    font-size: 2vw;
+    font-size: 0.6rem;
+    margin: 0;
+    margin-right: 0.2rem;
+}
+
+.types-container,
+.weaknesses-container{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
 }
 
 .badge{
@@ -255,13 +263,21 @@ h2 {
     line-height: 1em;
     text-align: center;
     vertical-align: middle;
-    padding: 0.2em 0.3em;
+    font-size: 0.4rem;
+    padding: 0.1em 0.3em;
+    padding-top: 0.3em;
+    border-radius: 1px;
+    background: rgb(15, 132, 228);
+}
+.badge:hover{
+    box-shadow: 0px 0px 3px 0px #fff;
+    background: rgb(0, 121, 151);
 }
 
 .stats-group {
     display: flex;
     justify-content: space-between;
-    height: 40%;
+    height: 50%;
     width: 90%;
     position: absolute;
     bottom: 5%;
@@ -270,21 +286,45 @@ h2 {
     /* background-color: blue; */
 }
 .stat {
-    width: 12%;
+    width: 14%;
     /* min-width: 10%; */
     height: 100%;
     position: relative;
 }
 .stat-value-container {
     background-color: white;
-    width: 100%;
-    height: 100%;
+    width: 67%;
+    margin: 5% 15%;
+    /* margin: auto; */
+    height: 65%;
     position: relative;
 }
 .stat-value {
     background-color: rgb(0, 159, 187);
     width: 100%;
-    height: 50%;
+    /* height: 50%; */
     position: absolute;
     bottom: 0;
+}
+.stat-value-container:hover {
+    box-shadow: 0px 0px 3px 0px #fff;
+}
+.stat-value-container:hover .stat-value {
+    background-color: rgb(0, 165, 124);
+}
+.stat-name{
+    /* font-size: 0.35rem; */
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    /* word-wrap: break-word;
+    word-break: break-word; */
+}
+.stat-name:nth-child(1){
+    height: 10%;
+    /* padding-bottom: 0.1rem; */
+}
+.stat-name:nth-child(3){
+    height: 25%;
+    /* padding-top: 0.2rem; */
 }

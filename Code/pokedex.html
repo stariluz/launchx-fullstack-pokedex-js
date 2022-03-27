@@ -48,11 +48,14 @@
                 <div class="secondary-center">
                     <div class="secondary-screen">
                         <div class="">
-                            <div class="types-container d-inline" id="pk_types">
-                                <h3 class="d-inline">TIPO: </h3>
-                                <h3 class="d-inline" id="pk_type_undefined">- - - - -</h3>
+                            <div class="types-container" id="pk_types">
+                                <h3 class="d-inline">TYPE: </h3>
+                                <h3 class="d-inline" id="pk_types_undefined">- - - - -</h3>
                             </div>
-                            <div class="" id="pk_weaknesses"></div>
+                            <div class="weaknesses-container" id="pk_weaknesses">
+                                <h3 class="d-inline">WEAKNESSES: </h3>
+                                <h3 class="d-inline" id="pk_weaknesses_undefined">- - - - -</h3>
+                            </div>
                         </div>
                         <div class="stats-group" id="pk_stats">
                             <div class="stat">
@@ -60,12 +63,6 @@
                                     <div class="stat-value"></div>
                                 </div>
                                 <h4 class="stat-name" id="stat-name"></h4>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value-container">
-                                    <div class="stat-value"></div>
-                                </div>
-                                <h4 class="stat-name"></h4>
                             </div>
                         </div>
                     </div>
@@ -77,5 +74,9 @@
 </body>
 <footer>
     <script src="./js/pokedex.js"></script>
+    <script src="./js/fittext.js"></script>
+    <!-- <script type="text/javascript">
+        fitText(document.getElementsByClassName("stat-name"), 1.2);
+    </script> -->
 </footer>
 </html>
