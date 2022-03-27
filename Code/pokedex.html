@@ -9,18 +9,6 @@
     <link rel="stylesheet" href="./styles/pokedex.css">
 </head>
 <body>
-    <!-- <h1>Pokedex LaunchX</h1>
-    <br>
-    <img src="./images/confused.png" alt="Pokemon" id="pk_image" width="150px">
-    <br>
-    <p id="pk_name"></p>
-    <ul id="pk_types">
-    </ul>
-    <ul id="pk_stats">
-    </ul>
-    <ul id="pk_moves">
-    </ul>
-    -->
     <div class="pokedex">
         <div class="left-side">
             <div class="main-container">
@@ -57,7 +45,60 @@
                                 <h3 class="d-inline" id="pk_weaknesses_undefined">- - - - -</h3>
                             </div>
                         </div>
+                        <!-- <div class="stats-group" id="pk_stats">
+                        </div> -->
                         <div class="stats-group" id="pk_stats">
+                            <div class="stat" id="stat_hp">
+                                <h4 class="stat-name" id="stat_hp_text_value"></h4>
+                                <div class="stat-value-container">
+                                    <div class="stat-value" id="stat_hp_value"></div>
+                                </div>
+                                <h4 class="stat-name">HP</h4>
+                            </div>
+                            <div class="stat" id="stat_attack">
+                                <h4 class="stat-name" id="stat_attack_text_value"></h4>
+                                <div class="stat-value-container">
+                                    <div class="stat-value" id="stat_attack_value"></div>
+                                </div>
+                                <h4 class="stat-name">ATK</h4>
+                            </div>
+                            <div class="stat" id="stat_defense">
+                                <h4 class="stat-name" id="stat_defense_text_value"></h4>
+                                <div class="stat-value-container">
+                                    <div class="stat-value" id="stat_defense_value"></div>
+                                </div>
+                                <h4 class="stat-name">DEF</h4>
+                            </div>
+                            <div class="stat" id="stat_special-attack">
+                                <h4 class="stat-name" id="stat_special-attack_text_value"></h4>
+                                <div class="stat-value-container">
+                                    <div class="stat-value" id="stat_special-attack_value"></div>
+                                </div>
+                                <h4 class="stat-name">SP.ATK</h4>
+                            </div>
+                            <div class="stat" id="stat_special-defense">
+                                <h4 class="stat-name" id="stat_special-defense_text_value"></h4>
+                                <div class="stat-value-container">
+                                    <div class="stat-value" id="stat_special-defense_value"></div>
+                                </div>
+                                <h4 class="stat-name">SP. DEF</h4>
+                            </div>
+                            <div class="stat" id="stat_speed">
+                                <h4 class="stat-name" id="stat_speed_text_value"></h4>
+                                <div class="stat-value-container">
+                                    <div class="stat-value" id="stat_speed_value"></div>
+                                </div>
+                                <h4 class="stat-name">SPEED</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="moves-screen">
+                        <div class="moves-title" id="moves_title">
+                            <h4>
+                                Movements for 
+                            </h4>
+                        </div>
+                        <div class="moves-container" id="pk_moves">
                         </div>
                     </div>
                 </div>
@@ -69,8 +110,16 @@
 <footer>
     <script src="./js/pokedex.js"></script>
     <script src="./js/fittext.js"></script>
-    <!-- <script type="text/javascript">
-        fitText(document.getElementsByClassName("stat-name"), 1.2);
-    </script> -->
+    <script type="text/javascript">
+        fitText(document.querySelectorAll(".stat-name"), 0.3);
+        fitText(document.getElementById("stat_special-attack").children, 0.5);
+        fitText(document.getElementById("stat_special-defense").children, 0.5);
+        fitText(document.getElementById("stat_speed").children, 0.4);
+
+        fitText(document.getElementById("stat_hp_text_value"), 0.5);
+        fitText(document.getElementById("stat_attack_text_value"), 0.5);
+        fitText(document.getElementById("stat_defense_text_value"), 0.5);
+        fitText(document.getElementById("stat_speed_text_value"), 0.5);
+    </script>
 </footer>
 </html>

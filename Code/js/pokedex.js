@@ -12,7 +12,7 @@ const fetchPokemon = () => {
         (res) => {
             if (res.status != "200") {
                 // console.log(res);
-                undefindedPokemon()
+                undefindedPokemon();
             }
             else {
                 return res.json();
@@ -22,35 +22,38 @@ const fetchPokemon = () => {
         (data) => {
             if (data) {
                 // console.log(data);
-                changePokemon(data)
+                changePokemon(data);
             }
         }
     );
 }
 
-const pkNameContainer=document.getElementById("pk_name");
-
-const pkImageContainer = document.getElementById("pk_image");
-
-const pkTypesContainer = document.getElementById("pk_types");
-const pkTypesUndefined = document.getElementById("pk_types_undefined");
-
-const pkStatsContainer = document.getElementById("pk_stats");
-
-const pkMovesContainer = document.getElementById("pk_moves");
-
-const pkWeaknessesContainer = document.getElementById("pk_weaknesses");
-const pkWeaknessesUndefined = document.getElementById("pk_weaknesses_undefined");
-
-const undefindedPokemon = ()=> {
+const undefindedPokemon = () => {
     pkImageContainer.src = confusedImage;
+    pkNameContainer.innerText= "No results, is the name/id correct?"
+
     pkTypesContainer.innerHTML = `<h3 class="d-inline">TYPE: </h3>`;
     pkTypesContainer.appendChild(pkTypesUndefined)
+
     pkWeaknessesContainer.innerHTML = `<h3 class="d-inline">WEAKNESSES: </h3>`;
     pkWeaknessesContainer.appendChild(pkWeaknessesUndefined)
+
+    for(var i=0; i<pkStatsContainer.children.length; i++){
+        // console.log("Stat", pkStatsContainer.children[i]);
+        pkStatsContainer.children[i].children[0].innerText =  "";
+        pkStatsContainer.children[i].children[1].children[0].style.height = "0%";
+    }
+    for(var i=0; i<pkStatsContainer.children.length; i++){
+        // console.log("Stat", pkStatsContainer.children[i]);
+        pkStatsContainer.children[i].children[0].innerText =  "";
+        pkStatsContainer.children[i].children[1].children[0].style.height = "0%";
+    }
+
+    pkMovesContainer.innerHTML="";
 }
 
 const changePokemon = (data) =>{
+
     setPokemonInformation(data.id, data.name);
     
     setPokemonImage(data.sprites);
@@ -60,9 +63,32 @@ const changePokemon = (data) =>{
     setPokemonStats(data.stats);
 
     setPokemonMoves(data.moves);
+
 }
 
+const pkNameContainer=document.getElementById("pk_name");
+const movesTitle=document.getElementById("moves_title");
+const setPokemonInformation = (id, name) =>{
+    // Pokemon Information
+    let pkNumber = id;
+    let pkName = name;
 
+    pkName = pkName[0].toUpperCase() + pkName.slice(1);
+    movesTitle.innerHTML=`<h4>Movements of ${pkName}</h4>`;
+
+    pkName = pkName.toUpperCase();
+    pkNameContainer.innerText = "#" + pkNumber + " - " + pkName;
+}
+
+const pkImageContainer = document.getElementById("pk_image");
+const setPokemonImage = (sprites) =>{
+    // Pokemon Image
+    let pkImageURL = sprites.front_default;
+    pkImageContainer.src = pkImageURL;
+}
+
+const pkTypesContainer = document.getElementById("pk_types");
+const pkTypesUndefined = document.getElementById("pk_types_undefined");
 const setPokemonTypes = (types) =>{
     // Pokemon type
     pkTypesContainer.innerHTML = `<h3 class="d-inline">TYPE: </h3>`;
@@ -83,39 +109,25 @@ const setPokemonTypes = (types) =>{
     );
 }
 
-const setPokemonInformation = (id, name) =>{
-    // Pokemon Information
-    let pkNumber = id;
-    let pkName = name;
-    // pkName = pkName[0].toUpperCase() + pkName.slice(1);
-    pkName = pkName.toUpperCase();
-    pkNameContainer.innerText = "#" + pkNumber + " - " + pkName;
-}
-
-const setPokemonImage = (sprites) =>{
-    // Pokemon Image
-    let pkImageURL = sprites.front_default;
-    pkImageContainer.src = pkImageURL;
-}
-
-const setPokemonMoves = (moves) =>{
-    // Pokemon movements
-    pkMovesContainer.innerHTML = null;
-    moves.forEach(
-        (move) => {
-            let moveName = move.move.name;
-            moveName = moveName[0].toUpperCase() + moveName.slice(1);
-
-            let newMove = document.createElement("li");
-            newMove.innerText = moveName;
-            pkMovesContainer.appendChild(newMove);
-        }
-    );
-}
-
+const pkStatsContainer = document.getElementById("pk_stats");
 const setPokemonStats = (stats) =>{
     // Pokemon stats
-    pkStatsContainer.innerHTML = null;
+    stats.forEach(
+        (stat) => {
+            let statValue = stat.base_stat;
+            let statName = stat.stat.name;
+            let newStatValueText=pkStatsContainer.querySelector("#stat_"+statName+"_text_value");
+            let newStatValue=pkStatsContainer.querySelector("#stat_"+statName+"_value");
+            
+            newStatValueText.innerText =  statValue + "pts";
+            statValue = ((statValue*100)/255);
+            newStatValue.style.height = statValue + "%";
+            
+            // fitText(newStatValueText, 0.5);
+        }
+    );
+    /*
+    // pkStatsContainer.innerHTML = null;
     stats.forEach(
         (stat) => {
             let statValue = stat.base_stat;
@@ -140,9 +152,9 @@ const setPokemonStats = (stats) =>{
 
             // Doing calculations for right render
             newStatValueText.innerText =  statValue + "pts";
-            statValue=((statValue*100)/255)
-            // console.log(statValue)
-            newStatValue.style.height = statValue + "%"
+            statValue=((statValue*100)/255);
+            // console.log(statValue);
+            newStatValue.style.height = statValue + "%";
             newStatName.innerText=statName;
             
             newStatValueContainer.appendChild(newStatValue)
@@ -156,8 +168,44 @@ const setPokemonStats = (stats) =>{
             fitText(newStatName, 0.5);
         }
     );
+    */
 }
 
+const pkMovesContainer = document.getElementById("pk_moves");
+const setPokemonMoves = (moves) =>{
+    // Pokemon movements
+    // console.log(moves);
+    pkMovesContainer.innerHTML=null;
+    moves.forEach(
+        (move) => {
+            let moveURL = move.move.url;
+            let moveName = move.move.name;
+            // moveName = moveName[0].toUpperCase() + moveName.slice(1);
+            moveName = moveName.toUpperCase();
+
+            let newMove = document.createElement("div");
+            let newMoveName = document.createElement("p");
+
+            newMoveName.innerText = moveName;
+            newMove.appendChild(newMoveName);
+            pkMovesContainer.appendChild(newMove);
+
+            fetchMoveType(moveURL, newMove);
+        }
+    );
+}
+
+const setMoveType = (type, element) =>{
+    // Pokemon movement type
+    console.log(type.name);
+    let newType = document.createElement("span");
+    newType.classList.add("badge");
+    newType.innerText = type.name;
+    element.appendChild(newType);
+}
+
+const pkWeaknessesContainer = document.getElementById("pk_weaknesses");
+const pkWeaknessesUndefined = document.getElementById("pk_weaknesses_undefined");
 const setPokemonWeaknesses = (data) =>{
     // Pokemon weaknesses
     pkWeaknessesContainer.innerHTML = `<h3 class="d-inline">WEAKNESSES: </h3>`;
@@ -186,6 +234,24 @@ const fetchWeaknesses = (typeURL) => {
             if (data) {
                 // console.log(data);
                 setPokemonWeaknesses(data);
+                // return(data);   
+            }
+        }
+    );
+}
+
+const fetchMoveType = (moveURL, element) => {
+    fetch(moveURL).then(
+        (res) => {
+            if (res.status == "200") {
+                return res.json();
+            }
+        }
+    ).then(
+        (data) => {
+            if (data) {
+                // console.log(data);
+                setMoveType(data.type, element);
                 // return(data);   
             }
         }

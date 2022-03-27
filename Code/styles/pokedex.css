@@ -17,6 +17,7 @@ html{
     width: 100%; */
     padding: 0;
     margin: auto;
+    height: 100%;
     /* margin: var(--body-margin); */
 }
 
@@ -33,21 +34,17 @@ body {
     /* height: calc(100% - var(--body-margin)*2); */
     /* width: calc(100% - var(--body-margin)*2); */
     width: 80vw;
+    height: 68vw;
     /* width: 850px; */
     /* max-height: 900px; */
     position: relative;
-    /* top: 50%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
-    /* transform: translate(-50%, 0%); */
-    /* background: #F9D237; */
 }
 
-.pokedex::before {
+/* .pokedex::before {
     content: '';
     display: block;
     padding-top: 85%;
-}
+} */
 
 .left-side {
     width: calc(50% + (var(--ducts-width)/2) + 0.35vw);
@@ -221,6 +218,8 @@ h2 {
     top: 0.7vw;
     left: 0.7vw;
 
+    padding: 7%;
+
     border-radius: 0px 0.7vw 0.7vw 0px;
 
     box-shadow:
@@ -235,11 +234,11 @@ h2 {
 }
 
 .secondary-screen {
-    height: 30%;
-    width: 86%;
-    position: relative;
+    height: 40%;
+    /* width: 86%;
     top: 5%;
-    left: 7%;
+    left: 7%; */
+    position: relative;
 
     border-radius: 1vw;
     background-color: rgb(18, 37, 32);
@@ -256,7 +255,7 @@ h2 {
     width: 90%;
     position: relative;
     top: 8%;
-    left: 8%;
+    left: 5%;
     display: grid;
     gap: 0.5rem;
 }
@@ -327,6 +326,9 @@ h2 {
     width: 100%;
     margin: 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* word-wrap: break-word;
     word-break: break-word; */
 }
@@ -337,4 +339,49 @@ h2 {
 .stat-name:nth-child(3){
     height: 25%;
     /* padding-top: 0.2rem; */
+}
+
+.moves-screen {
+    background: rgb(22, 160, 224);
+    height: 30%;
+    margin-top: 7%;
+    overflow: hidden;
+    border-radius: 1vw;
+}
+
+.moves-title {
+    height: 20%;
+}
+.moves-title h4{
+    font-size: 0.8rem;
+    text-align: center;
+    margin: none;
+}
+
+.moves-container {
+    background: rgb(0, 63, 92);
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 50%;
+    overflow-y: auto;
+}
+
+.moves-container div{
+    background: rgb(62, 152, 255);
+    font-size: 0.7rem;
+    width: 100%;
+    text-align-last: center;
+    padding: 2%;
+}
+.moves-container p{
+    margin: 0;
+}
+.moves-container .badge{
+    width: fit-content;
+    background-color: rgb(20, 29, 14);
+    color: rgb(255, 255, 255);
+}
+.moves-container .badge:hover{
+    background-color: rgb(28, 48, 16);
 }
