@@ -9,6 +9,30 @@
     <link rel="stylesheet" href="./styles/pokedex.css">
 </head>
 <body>
+    <div class="modal" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Credits and about</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        This is a project of <a href="https://github.com/Adrigondo" target="blank">Adrian González (@Adrigondo)</a>.
+                        <br>
+                        <br>
+                        With content of <a href="https://pokeapi.co/" target="blank">PokéAPI</a> created by <a href="https://github.com/phalt" target="blank">Paul Hallet</a>.
+                        <br>
+                        <br>
+                        Pokémon and Pokémon character names are trademarks of Nintendo.
+                        <br>
+                        <br>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="pokedex">
         <div class="left-side">
             <div class="main-container">
@@ -36,8 +60,9 @@
                             <button class="" type="button" id="" onclick=""></button>
                             <button class="" type="button" id="" onclick=""></button>
                             <div></div>
+                            <div></div>
                         </div>
-                        <textarea type="text" class="form-control" placeholder="Write the name or number of the Pokemon" id="user_input" name="user_input" aria-label="Pokemon name/number" aria-describedby="button-addon2">Pikachu</textarea>
+                        <textarea type="text" class="form-control" placeholder="Write the name or number of the Pokemon" id="user_input" name="user_input" aria-label="Pokemon name/number" aria-describedby="button-addon2"></textarea>
                     </div>
                 </div>
                 <div class="aux"></div>
@@ -122,14 +147,12 @@
                             <div></div>
                         </div>
                         <div class="credits-buttons">
-                            <button class="" type="button" id="" onclick="">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#infoModal">
                                 <i class="fa-solid fa-circle-info"></i>
                             </button>
                             <button class="" type="button" id="" onclick=""></button>
                         </div>
-                        <div class="decoration-light">
-                            
-                        </div>
+                        <div class="decoration-light"></div>
                     </div>
                 </div>
             </div>
