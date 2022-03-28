@@ -15,15 +15,34 @@
                 <div class="aux"></div>
                 <div class="main-center">
                     <div class="main-screen">
-                        <div class="main-image">
-                            <img src="./images/confused.png" alt="Pokemon" alt="" id="pk_image">
-                            <h2 id="pk_name">
-                                Hi to Pokedex
-                            </h2>
+                        <div class="main-shape">
+                            <div class="main-image">
+                                <img src="./images/confused.png" alt="Pokemon" alt="" id="pk_image">
+                                <h2 id="pk_name">
+                                    Hi to Pokedex
+                                </h2>
+                            </div>
                         </div>
                     </div>
-                    <input type="text" placeholder="pikachu" id="user_input" name="user_input" value="Pikachu">
-                    <button onclick="fetchPokemon()" class="btn btn-primary">Cambiar pokemon</button> 
+                    <!-- <div class="input-group">
+                        <input type="text" placeholder="pikachu" id="user_input" name="user_input" value="Pikachu" class="input">
+                        <button onclick="fetchPokemon()" class="btn btn-primary">Cambiar pokemon</button>
+                    </div> -->
+                    <div class="main-controls">
+                        <button class="" type="button" id="user_input_button" onclick="searchPokemon()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <div class="decoration-lights">
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="cross-button">
+                            <button class="" type="button" id="" onclick=""></button>
+                            <button class="" type="button" id="" onclick=""></button>
+                            <button class="" type="button" id="" onclick=""></button>
+                            <button class="" type="button" id="" onclick=""></button>
+                            <div></div>
+                        </div>
+                        <textarea type="text" class="form-control" placeholder="Write the name or number of the Pokemon" id="user_input" name="user_input" aria-label="Pokemon name/number" aria-describedby="button-addon2">Pikachu</textarea>
+                    </div>
                 </div>
                 <div class="aux"></div>
             </div>
@@ -95,7 +114,7 @@
                     <div class="moves-screen">
                         <div class="moves-title" id="moves_title">
                             <h4>
-                                Movements for 
+                                MOVEMENTS
                             </h4>
                         </div>
                         <div class="moves-container" id="pk_moves">
@@ -121,5 +140,6 @@
         fitText(document.getElementById("stat_defense_text_value"), 0.5);
         fitText(document.getElementById("stat_speed_text_value"), 0.5);
     </script>
+    <script src="https://kit.fontawesome.com/d5c83e3c70.js" crossorigin="anonymous"></script>
 </footer>
 </html>

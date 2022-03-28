@@ -1,13 +1,23 @@
 const confusedImage="./images/confused.png";
 
-const fetchPokemon = () => {
+var pokemonCurrent=null;
 
-    const userInput = document.getElementById("user_input");
-    let nameInput = userInput.value;
-    nameInput = nameInput.toLowerCase();
+const userInput = document.getElementById("user_input");
+const searchPokemon = () => {
+    let pokemon = userInput.value;
+    pokemon = pokemon.toLowerCase();
+    if(pokemonCurrent){
+        if(pokemon&&pokemon!=pokemonCurrent.id&&pokemon!=pokemonCurrent.name){
+            // console.log("Es diferente: "+pokemon);
+            fetchPokemon(pokemon);
+        }
+    }else if(pokemon){
+        fetchPokemon(pokemon);
+    }
+}
 
-    const url = `https://pokeapi.co/api/v2/pokemon/${nameInput}`;
-
+const fetchPokemon = (pokemon) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
     fetch(url).then(
         (res) => {
             if (res.status != "200") {
@@ -22,13 +32,15 @@ const fetchPokemon = () => {
         (data) => {
             if (data) {
                 // console.log(data);
-                changePokemon(data);
+                pokemonCurrent=changePokemon(data);
             }
         }
     );
 }
 
 const undefindedPokemon = () => {
+    pokemonCurrent=null;
+    
     pkImageContainer.src = confusedImage;
     pkNameContainer.innerText= "No results, is the name/id correct?"
 
@@ -48,13 +60,14 @@ const undefindedPokemon = () => {
         pkStatsContainer.children[i].children[0].innerText =  "";
         pkStatsContainer.children[i].children[1].children[0].style.height = "0%";
     }
-
+    
+    movesTitle.innerHTML=`<h4>MOVEMENTS</h4>`;
     pkMovesContainer.innerHTML="";
 }
 
 const changePokemon = (data) =>{
 
-    setPokemonInformation(data.id, data.name);
+    let information=setPokemonInformation(data.id, data.name);
     
     setPokemonImage(data.sprites);
 
@@ -63,6 +76,8 @@ const changePokemon = (data) =>{
     setPokemonStats(data.stats);
 
     setPokemonMoves(data.moves);
+
+    return(information)
 
 }
 
@@ -73,11 +88,16 @@ const setPokemonInformation = (id, name) =>{
     let pkNumber = id;
     let pkName = name;
 
-    pkName = pkName[0].toUpperCase() + pkName.slice(1);
-    movesTitle.innerHTML=`<h4>Movements of ${pkName}</h4>`;
-
+    // pkName = pkName[0].toUpperCase() + pkName.slice(1);
+    
     pkName = pkName.toUpperCase();
     pkNameContainer.innerText = "#" + pkNumber + " - " + pkName;
+    movesTitle.innerHTML=`<h4>MOVEMENTS OF ${pkName}</h4>`;
+
+    return({
+        "id": pkNumber,
+        "name": pkName.toLowerCase(),
+    });
 }
 
 const pkImageContainer = document.getElementById("pk_image");
@@ -197,10 +217,10 @@ const setPokemonMoves = (moves) =>{
 
 const setMoveType = (type, element) =>{
     // Pokemon movement type
-    console.log(type.name);
+    // console.log(type.name);
     let newType = document.createElement("span");
     newType.classList.add("badge");
-    newType.innerText = type.name;
+    newType.innerText = type.name.toUpperCase();
     element.appendChild(newType);
 }
 
